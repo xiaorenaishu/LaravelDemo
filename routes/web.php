@@ -18,8 +18,6 @@ Route::get('/', function () {
 Auth::routes(); //登录脚手架路由
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', 'HomeController@admin');
+//Route::get('/admin', 'HomeController@index');
 Route::resource('post', 'PostController');
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

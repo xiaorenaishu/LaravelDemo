@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\Demo;
+use App\Models\Log;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -24,6 +28,20 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $userId = \Auth::user()->id;
+        $table = 'log_' . $userId % 3;
+        DB::table($table)->insert([
+            'user_id' => $userId,
+            'content' => 'content',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+
+//        Log()
+
+//        (new Log(['uid' => 2]))->setTable()->newQuery()->create();
+
+
 //        $redis = \Illuminate\Support\Facades\Redis::connection();
 //        $pipe = $redis->pipeline(); //开启管道
 ////        $pipe->watch('key'); //监察key
@@ -59,5 +77,10 @@ class HomeController extends Controller
 
 //        dd($res);
         return view('home');
+    }
+
+    public function queueDemo()
+    {
+        $this->dispatch(new Demo());
     }
 }
