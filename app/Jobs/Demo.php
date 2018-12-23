@@ -30,6 +30,6 @@ class Demo implements ShouldQueue
     public function handle()
     {
         //
-        \Log::info('job done' . now());
+        \Log::info('job done ~' . now());
     }
 }

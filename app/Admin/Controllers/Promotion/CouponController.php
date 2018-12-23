@@ -66,6 +66,8 @@ class CouponController extends Controller
         $form->id('id', 'ID');
         $form->text('title', '标题');
         $form->text('label', '标签');
+//        $form->map(100,100, 'label');
+//        $form->editor('label');
 //        $form->datetimeRange('start_time', 'end_time', '起止时间');
 
         return $form;

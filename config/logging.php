@@ -31,11 +31,13 @@ return [
     |                    "errorlog", "monolog",
     |                    "custom", "stack"
     |
+    |  level: emergency、alert、critical、error、warning、 notice、info 和 debug。
     */
 
     'channels' => [
         'stack' => [
             'driver' => 'stack',
+            'name' => 'dev',
             'channels' => ['daily'],
         ],
 

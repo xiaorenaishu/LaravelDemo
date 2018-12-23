@@ -33,4 +33,6 @@ class Demo extends Model
     public $timestamps = false;
     //
     protected $fillable = ['name', 'remark', 'status', 'create_time', 'update_time'];
+
+    protected $connection = 'mysql_r_w';
 }

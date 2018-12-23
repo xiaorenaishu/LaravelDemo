@@ -56,6 +56,25 @@ return [
             'engine' => null,
         ],
 
+        //自定义mysql连接,读写分离
+        'mysql_r_w' => array(
+            'read' => array(
+                array('host' => '127.0.0.1', 'port' => 3306),
+                array('host' => '127.0.0.1', 'port' => 3306),
+            ),
+            'write' => array(
+                'host' => '127.0.0.1',
+                'port' => 3306
+            ),
+            'driver' => 'mysql',
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_general_ci',
+            'prefix' => '',
+        ),
+
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),
